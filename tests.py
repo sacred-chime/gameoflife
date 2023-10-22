@@ -1,37 +1,32 @@
-import unittest
-
-import numpy as np
+import pytest
 
 from main import Game
 
 
-class TestSolution(unittest.TestCase):
-    def setUp(self):
-        self.game = Game(x=3)
+class TestSolution:
+    @pytest.fixture
+    def game(self):
+        return Game(x=3)
 
-    def test_1(self):
+    def test_1(self, game):
         block = [[1, 1, 0], [1, 1, 0], [0, 0, 0]]
 
-        self.game.start_game(type="user", user_input=block)
+        game.start_game(type="user", user_input=block)
 
-        self.game._tick()
-        self.assertEqual(self.game.board.tolist(), block)
+        game._tick()
+        assert game.board.tolist() == block
 
-        self.game._tick()
-        self.assertEqual(self.game.board.tolist(), block)
+        game._tick()
+        assert game.board.tolist() == block
 
-    def test_2(self):
+    def test_2(self, game):
         blinker_phase1 = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
         blinker_phase2 = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
 
-        self.game.start_game(type="user", user_input=blinker_phase1)
+        game.start_game(type="user", user_input=blinker_phase1)
 
-        self.game._tick()
-        self.assertEqual(self.game.board.tolist(), blinker_phase2)
+        game._tick()
+        assert game.board.tolist() == blinker_phase2
 
-        self.game._tick()
-        self.assertEqual(self.game.board.tolist(), blinker_phase1)
-
-
-if __name__ == "__main__":
-    unittest.main()
+        game._tick()
+        assert game.board.tolist() == blinker_phase1

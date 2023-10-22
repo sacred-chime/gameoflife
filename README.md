@@ -19,5 +19,3 @@ Installation:
 To Run Test Suite:
 
 `Run tests.py`
-
-## Reflection
