@@ -1,7 +1,7 @@
 import random
 from dataclasses import dataclass
 from itertools import combinations
-from typing import List, Literal
+from typing import List, Literal, Optional
 
 import numpy as np
 
@@ -26,14 +26,13 @@ class Game:
     def start_game(
         self,
         type: Literal["simple", "random", "user"],
-        **kwargs,
+        user_input: Optional[List[List[Literal[0, 1]]]] = None,
     ):
         if type == "simple":
             self._generate_simple_board()
         elif type == "random":
             self._generate_random_board()
         elif type == "user":
-            user_input = kwargs.get("user_input", None)
             assert user_input, "user_input must be provided if user type is selected."
             assert isinstance(user_input, list)
             self._set_user_input_board(user_input=user_input)
@@ -57,7 +56,7 @@ class Game:
             for col in range(self.length):
                 self.board[row, col] = random.randint(0, 1)
 
-    def _set_user_input_board(self, user_input: List[List[bool]]):
+    def _set_user_input_board(self, user_input: List[List[Literal[0, 1]]]):
         assert len(user_input) == self.length
         assert len(user_input[0]) == self.length
 
@@ -88,7 +87,7 @@ class Game:
             count = 0
             neighboring_points = get_neighboring_points(point=point)
             for point in neighboring_points:
-                if self.board[point.x][point.y] == 1:
+                if self.board[point.x, point.y] == 1:
                     count += 1
             return count
 
@@ -100,16 +99,16 @@ class Game:
                     point=Point(x=row, y=col)
                 )
 
-                if self.board[row][col] == 1 and alive_neighbor_count <= 1:
-                    new_board[row][col] = 0
+                if self.board[row, col] == 1 and alive_neighbor_count <= 1:
+                    new_board[row, col] = 0
 
-                if self.board[row][col] == 1 and alive_neighbor_count >= 4:
-                    new_board[row][col] = 0
+                if self.board[row, col] == 1 and alive_neighbor_count >= 4:
+                    new_board[row, col] = 0
 
-                if self.board[row][col] == 1 and alive_neighbor_count in range(2, 4):
-                    new_board[row][col] = 1
+                if self.board[row, col] == 1 and alive_neighbor_count in range(2, 4):
+                    new_board[row, col] = 1
 
-                if self.board[row][col] == 0 and alive_neighbor_count == 3:
-                    new_board[row][col] = 1
+                if self.board[row, col] == 0 and alive_neighbor_count == 3:
+                    new_board[row, col] = 1
 
         self.board = new_board
