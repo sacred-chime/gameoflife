@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Conway's Game of Life - FastAPI & HTMX Demo App{%
+      endblock %}
+    </title>
+
+    <link rel="stylesheet" href="/static/css/site.css" />
+
+    {% block additional_css %}{% endblock %}
+  </head>
+  <body>
+    <div class="main_content">{% block main_content %}{% endblock %}</div>
+
+    <footer>
+      <div class="copyright">
+        Demo of FastAPI and <a href="https://htmx.org" target="_blank">HTMX</a>
+      </div>
+    </footer>
+
+    <script src="/static/js/htmx.min.js"></script>
+
+    {% block additional_js %}{% endblock %}
+  </body>
+</html>

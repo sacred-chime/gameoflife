@@ -2,7 +2,14 @@
 
 Conway's Game of Life
 
-My implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Built with Python.
+My implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Built with Python, FastAPI, and HTMX. The purpose of this project is to create a demo that uses FastAPI and HTMX for the sake of learning.
+
+The technologies that are new to me within this project:
+
+- GitHub Actions
+- mypy
+- pytest
+- HTMX
 
 ## Project Status
 
@@ -10,12 +17,24 @@ This project is currently in development. The backend logic is currently functio
 
 ## Installation and Setup Instructions
 
-Clone down this repository.
-
 Installation:
 
-`pip install -r requirements.txt`
+```bash
+git clone https://github.com/sacred-chime/gameoflife
+cd gameoflife
+```
 
-To Run Test Suite:
+```bash
+pip install -r requirements.txt
+uvicorn main:app --reload --port 11111
+```
 
-`Run tests.py`
+### OR
+
+`If you have VS Code, run the "Server Start" task.`
+
+To run the test suite:
+
+```bash
+pytest tests.py
+```

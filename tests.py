@@ -1,6 +1,6 @@
 import pytest
 
-from main import Game
+from conway import Game
 
 
 class TestSolution:
