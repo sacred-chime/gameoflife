@@ -1,0 +1,7 @@
+<div class="mt-5" hx-target="this" hx-swap="outerHTML">
+  <p>Click the Restart Game button to begin simulating life again.</p>
+  {% include 'home/partials/game_board.html' %}
+  <button type="button" class="btn btn-primary" hx-post="/game/start">
+    Restart Game
+  </button>
+</div>

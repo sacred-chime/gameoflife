@@ -2,3 +2,4 @@ fastapi>=0.104.1
 Jinja2>=3.1.2
 numpy>=1.26.1
 uvicorn>=0.23.2
+websockets>=12.0

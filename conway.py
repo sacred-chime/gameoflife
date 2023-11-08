@@ -26,16 +26,23 @@ class Game:
     def start_game(
         self,
         type: Literal["simple", "random", "user"],
-        user_input: Optional[List[List[Literal[0, 1]]]] = None,
+        user_input: Optional[list] = None,
     ):
         if type == "simple":
             self._generate_simple_board()
         elif type == "random":
             self._generate_random_board()
         elif type == "user":
-            assert user_input, "user_input must be provided if user type is selected."
-            assert isinstance(user_input, list)
+            assert isinstance(
+                user_input, list
+            ), "user_input must be provided if user type is selected."
             self._set_user_input_board(user_input=user_input)
+
+    def get_board(self):
+        return self.board
+
+    def get_board_length(self) -> int:
+        return self.length
 
     def _generate_simple_board(self):
         for row in range(self.length):
@@ -56,7 +63,7 @@ class Game:
             for col in range(self.length):
                 self.board[row, col] = random.randint(0, 1)
 
-    def _set_user_input_board(self, user_input: List[List[Literal[0, 1]]]):
+    def _set_user_input_board(self, user_input: list):
         assert len(user_input) == self.length
         assert len(user_input[0]) == self.length
 

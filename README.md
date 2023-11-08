@@ -1,15 +1,17 @@
-## Conway's Game of Life
+[![MIT License][license-shield]][license-url]
 
-Conway's Game of Life
+## About The Project
+
+[![Conway's Game of Life Screen Shot][product-screenshot]](https://github.com/sacred-chime)
 
 My implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Built with Python, FastAPI, and HTMX. The purpose of this project is to create a demo that uses FastAPI and HTMX for the sake of learning.
 
 The technologies that are new to me within this project:
 
+- [![HTMX][HTMX]][HTMX-url]
 - GitHub Actions
 - mypy
 - pytest
-- HTMX
 
 ## Project Status
 
@@ -19,19 +21,25 @@ This project is currently in development. The backend logic is currently functio
 
 Installation:
 
+1. Clone the repo
+
 ```bash
 git clone https://github.com/sacred-chime/gameoflife
-cd gameoflife
+
 ```
+
+2. Install Python requirements
 
 ```bash
+cd gameoflife
 pip install -r requirements.txt
-uvicorn main:app --reload --port 11111
 ```
 
-### OR
+3. Start Web Server
 
-`If you have VS Code, run the "Server Start" task.`
+```bash
+uvicorn main:app --reload --port 11111
+```
 
 To run the test suite:
 

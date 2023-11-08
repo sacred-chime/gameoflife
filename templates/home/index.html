@@ -1,17 +1,8 @@
 {% extends "shared/_layout.html" %} {% block main_content %}
 
 <div class="container">
-  <div id="parent-div">
-    <h1>Hello...</h1>
-  </div>
-  <button
-    hx-get="/world"
-    hx-trigger="click"
-    hx-target="#parent-div"
-    hx-swap="innerHTML"
-  >
-    Click Me!
-  </button>
+  <h1>Conway's Game of Life</h1>
+  {% include 'home/partials/start.html' %}
 </div>
 
 {% endblock %}

@@ -13,3 +13,26 @@ footer {
   color: #aaa;
   text-align: center;
 }
+
+td {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.alive {
+  background: slategrey;
+}
+
+.dead {
+  background: whitesmoke;
+}
+
+.container {
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  padding: 1%;
+  justify-content: center;
+}

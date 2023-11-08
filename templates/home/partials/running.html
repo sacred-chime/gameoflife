@@ -1,0 +1,10 @@
+<div
+  class="mt-5"
+  hx-target="this"
+  hx-get="/game/running"
+  hx-trigger="load delay:200ms"
+  hx-swap="outerHTML"
+>
+  <p>Simulating...</p>
+  {% include 'home/partials/game_board.html' %}
+</div>
