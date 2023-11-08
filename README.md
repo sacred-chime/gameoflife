@@ -51,5 +51,5 @@ pytest tests.py
 
 [license-shield]: https://img.shields.io/github/license/sacred-chime/gameoflife.svg?style=for-the-badge
 [license-url]: https://github.com/sacred-chime/gameoflife/blob/master/LICENSE.txt
-[htmx.com]: https://img.shields.io/badge/logo-htmx-black?logo=amazonapigateway&logoColor=blue
+[htmx.com]: https://img.shields.io/badge/HTMX-20232A?style=for-the-badge&logo=amazonapigateway&logoColor=61DAFB
 [htmx-url]: https://htmx.org/
