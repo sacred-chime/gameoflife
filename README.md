@@ -8,7 +8,7 @@ My implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 
 The technologies that are new to me within this project:
 
-- [![HTMX][HTMX]][HTMX-url]
+- [![htmx][htmx.com]][HTMX-url]
 - GitHub Actions
 - mypy
 - pytest
@@ -46,3 +46,9 @@ To run the test suite:
 ```bash
 pytest tests.py
 ```
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[license-url]: https://github.com/sacred-chime/gameoflife/blob/master/LICENSE.txt
+[htmx.com]: https://img.shields.io/badge/logo-htmx-black?logo=amazonapigateway&logoColor=blue
+[htmx-url]: https://htmx.org/
