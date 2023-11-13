@@ -1,11 +1,13 @@
-<table>
-  {% for row in game_board %}
-  <tr>
-    {% for col in row %} {% if col == 1 %}
-    <td class="alive"></td>
-    {% else %}
-    <td class="dead"></td>
-    {% endif %} {% endfor %}
-  </tr>
-  {% endfor %}
-</table>
+<div class="game_board">
+  <table>
+    {% for row in game_board %}
+    <tr>
+      {% for col in row %} {% if col == 1 %}
+      <td class="alive"></td>
+      {% else %}
+      <td class="dead"></td>
+      {% endif %} {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>

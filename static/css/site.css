@@ -47,3 +47,8 @@ td {
   flex-direction: column;
   align-items: center;
 }
+
+.game_board {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -66,29 +66,24 @@ class Game:
                 self.board[row, col] = user_input[row][col]
 
     def _tick(self):
-        def get_neighboring_points(point: Point) -> List[Point]:
+        def get_alive_neighbor_count(point: Point) -> int:
             moves = [
                 Point(x=i[0], y=i[1])
                 for i in set(combinations([-1, 1, 0, -1, 1, 0], 2))
                 if not (i[0] == 0 and i[1] == 0)
             ]
 
-            neighbors = [point + i for i in moves]
-            valid_neighbors = []
+            potential_neighbors = [point + move for move in moves]
+            # Remove OOB points
+            valid_neighbors = [
+                neighbor
+                for neighbor in potential_neighbors
+                if 0 <= neighbor.x < self.length and 0 <= neighbor.y < self.length
+            ]
 
-            for neighbor in neighbors:
-                if (neighbor.x in range(0, self.length)) and (
-                    neighbor.y in range(0, self.length)
-                ):
-                    valid_neighbors.append(neighbor)
-
-            return valid_neighbors
-
-        def get_alive_neighbor_count(point: Point) -> int:
             count = 0
-            neighboring_points = get_neighboring_points(point=point)
-            for point in neighboring_points:
-                if self.board[point.x, point.y] == 1:
+            for neighbor in valid_neighbors:
+                if self.board[neighbor.x, neighbor.y] == 1:
                     count += 1
             return count
 
