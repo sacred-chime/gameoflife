@@ -1,7 +1,6 @@
 import random
 from dataclasses import dataclass
 from itertools import combinations
-import time
 from typing import List, Literal, Optional
 
 import numpy as np

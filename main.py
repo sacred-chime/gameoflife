@@ -1,11 +1,10 @@
 import pickle
-from typing import List, Literal
 
+import numpy as np
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import numpy as np
 
 from conway import Game
 
