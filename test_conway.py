@@ -8,7 +8,7 @@ class TestSolution:
     def game(self):
         return Game(x=3)
 
-    def test_1(self, game):
+    def test_1(self, game: Game):
         block = [[1, 1, 0], [1, 1, 0], [0, 0, 0]]
 
         game.start_game(type="user", user_input=block)

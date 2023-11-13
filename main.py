@@ -25,7 +25,7 @@ async def get_home(request: Request):
 async def post_game_start(request: Request):
     game = Game(x=25)
     game.start_game(type="random")
-    game_board = game.get_board()
+    game_board = game.board
 
     with open(GAMEBOARD_FILE, "wb") as f:
         pickle.dump(game_board.tolist(), f)
@@ -39,20 +39,20 @@ async def post_game_start(request: Request):
 @app.get("/game/running", response_class=HTMLResponse)
 async def get_game_running(request: Request):
     with open(GAMEBOARD_FILE, "rb") as f:
-        game_board: List[List[Literal[0, 1]]] = pickle.load(f)
+        game_board = pickle.load(f)
 
     game = Game(x=len(game_board))
     game.start_game(type="user", user_input=game_board)
-    game_board_0 = game.get_board()
+    game_board_0 = game.board
 
     game._tick()
-    game_board_1 = game.get_board()
+    game_board_1 = game.board
 
     with open(GAMEBOARD_FILE, "wb") as f:
         pickle.dump(game_board_1.tolist(), f)
 
     game._tick()
-    game_board_2 = game.get_board()
+    game_board_2 = game.board
 
     # Arbitrary stopping point so that it doesn't loop forever.
     #   if 1 or 2 steps ahead are the same as the current step, then the game is over.
