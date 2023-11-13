@@ -47,16 +47,10 @@ class Game:
     def _generate_simple_board(self):
         for row in range(self.length):
             for col in range(self.length):
-                if row % 2 == 0:
-                    if col % 2 == 0:
-                        self.board[row, col] = 1
-                    elif col % 2 == 1:
-                        self.board[row, col] = 0
-                elif row % 2 == 1:
-                    if col % 2 == 0:
-                        self.board[row, col] = 0
-                    elif col % 2 == 1:
-                        self.board[row, col] = 1
+                if (row + col) % 2 == 0:
+                    self.board[row, col] = 1
+                else:
+                    self.board[row, col] = 0
 
     def _generate_random_board(self):
         for row in range(self.length):
