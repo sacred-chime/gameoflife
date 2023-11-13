@@ -1,8 +1,17 @@
+head {
+  font-family: "Roboto";
+}
+
+body {
+  font-family: "Roboto";
+}
+
 a {
   text-decoration: none;
 }
 
 footer {
+  font-family: "Times New Roman";
   position: fixed;
   bottom: 0;
   left: 0;
@@ -30,9 +39,11 @@ td {
 }
 
 .container {
-  width: 1000px;
-  height: 1000px;
-  margin: auto;
+  height: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
